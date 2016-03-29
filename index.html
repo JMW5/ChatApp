@@ -4,48 +4,90 @@
 	<title>Chat Application</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<style type="text/css">
 		body {
-			margin-top: 50px;
+			margin-top: 60px;
+  			background-color: #b5b5b7;
+		}
+
+		h2 {
+			font-family: 'Exo', sans-serif;
+			letter-spacing: 4px;
+			text-decoration: underline;
+			font-size: 5rem;
 		}
 
 		#messageArea {
 			display: none;
+		}
+
+		.well {
+    		background-color: #252839;
+    		border-radius: 35px;
+    		font-size: 2.1rem;
+    		color: white;
+		}
+
+		.list-group-item {
+			color: black;
+		}
+
+		.btn-custom {
+			background-color: grey;
+			font-size: 2rem;
+			box-shadow: 14px 1px 9px -2px;
+		}
+
+		/* Iphone 6 Size */
+		@media only screen 
+		and (min-device-width : 375px) 
+		and (max-device-width : 667px) { 
+			body {
+				margin-top: 80px;
+			}
+			.btn-custom {
+				width: 100%;
+			}
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row" id="userFormArea">
-			<div class="col-md-12">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 text-center">
+				<h2>JMW CHATAPP</h2><br>
 				<form id="userForm">
 					<div class="form-group">
-						<label>Enter Username</label>
+						<label>Enter Your Name To Start:</label>
 						<input class="form-control" id="username"></input><br>
-						<input type="submit" class="btn btn-primary" value="Login"></input>
+						<input type="submit" class="btn btn-custom" value="Start Chatting.."></input>
 					</div>
 				</form>
 			</div>
+			<div class="col-md-2"></div>
 		</div>
 		<div class="row" id="messageArea">
 			<div class="col-md-4">
 				<div class="well">
-					<h3>Online Users</h3>
+					<h3>Who's Online?</h3>
 					<ul class="list-group" id="users"></ul>
 				</div>
 			</div>
 			<div class="col-md-8">
+				<h2>JMW CHATAPP</h2><br>
 				<div class="chat" id="chat"></div>
 				<form id="message-form">
 					<div class="form-group">
 						<label>Enter Message</label>
 						<textarea class="form-control" id="message"></textarea><br>
-						<input type="submit" class="btn btn-primary" value="Send Message"></input>
+						<input type="submit" class="btn btn-custom" value="Send Message"></input>
 					</div>
 				</form>
 			</div>
